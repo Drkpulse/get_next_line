@@ -6,32 +6,33 @@
 /*   By: joseferr <joseferr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:28:38 by joseferr          #+#    #+#             */
-/*   Updated: 2023/11/07 17:30:05 by joseferr         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:12:50 by joseferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#define BUFFER_SIZE 1000000
 
 // Join and free
 char *ft_comb_free(char *acc_content, char *new_content)
 {
-    char *temp_combined;
+	char *temp_combined;
 
-    temp_combined = ft_strjoin(acc_content, new_content);
-    free(acc_content);
-    return temp_combined;
+	temp_combined = ft_strjoin(acc_content, new_content);
+	free(acc_content);
+	return temp_combined;
 }
 
 // Extract next line
 char *extract_next_line(char *buff)
 {
-    int i_buff = 0;
-    int i_line = 0;
-    char *line;
+	int i_buff = 0;
+	int i_line = 0;
+	char *line;
 
-    // Find the length of the first line
-    while (buff[i_buff] && buff[i_buff] != '\n')
-        i_buff++;
+	// Find the length of the first line
+	while (buff[i_buff] && buff[i_buff] != '\n')
+		i_buff++;
 
     // If end of line is '\0', return NULL
     if (!buff[i_buff])
@@ -152,8 +153,8 @@ char *get_next_line(int fd)
     return curr_line;
 }
 
-/*
-#define BUFFER_SIZE 42
+
+
 int main()
 {
     int file_descriptor;
@@ -184,4 +185,3 @@ int main()
 
     return 0; // Exit successfully
 }
-*/

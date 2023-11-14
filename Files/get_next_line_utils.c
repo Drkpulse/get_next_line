@@ -6,13 +6,13 @@
 /*   By: joseferr <joseferr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:29:02 by joseferr          #+#    #+#             */
-/*   Updated: 2023/11/07 17:30:06 by joseferr         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:19:16 by joseferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *strjoin(const char *s1, const char *s2)
+char *ft_strjoin(const char *s1, const char *s2)
 {
 	int total_size;
 	char *res;
@@ -20,7 +20,7 @@ char *strjoin(const char *s1, const char *s2)
 	int j;
 
 	i = 0;
-	total_size = strlen(s1) + strlen(s2);
+	total_size = ft_strlen(s1) + ft_strlen(s2);
 	res = malloc(sizeof(char) * (total_size + 1));
 	if (!res || !s1 || !s2)
 		return NULL;
@@ -40,7 +40,7 @@ char *strjoin(const char *s1, const char *s2)
 	return res;
 }
 
-char *strchr(const char *str, int target_char)
+char *ft_strchr(const char *str, int target_char)
 {
 	char *str_ptr;
 
@@ -53,7 +53,7 @@ char *strchr(const char *str, int target_char)
 		return NULL;
 }
 
-void bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
 	char *str;
 	size_t i;
@@ -67,18 +67,18 @@ void bzero(void *s, size_t n)
 	}
 }
 
-void *calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 {
     char *res;
 
 	res = malloc(size * count);
 	if (!res)
 		return NULL;
-	bzero(res, size * count);
+	ft_bzero(res, size * count);
 	return res;
 }
 
-size_t strlen(const char *str)
+size_t ft_strlen(const char *str)
 {
 	size_t len;
 
