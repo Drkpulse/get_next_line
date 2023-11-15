@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joseferr <joseferr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:28:38 by joseferr          #+#    #+#             */
-/*   Updated: 2023/11/15 18:12:39 by joseferr         ###   ########.fr       */
+/*   Created: 2023/11/15 18:07:26 by joseferr          #+#    #+#             */
+/*   Updated: 2023/11/15 18:13:10 by joseferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_comb_free(char *content, char *new)
 {
@@ -91,16 +91,16 @@ char	*read_file(int fd, char *rest)
 
 char	*get_next_line(int fd)
 {
-	static char	*content;
+	static char	*content[FOPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
-	content = read_file(fd, content);
-	if (!content)
+	content[fd] = read_file(fd, content[fd]);
+	if (!content[fd])
 		return (NULL);
-	line = extract_line(content);
-	content = extract_next_line(content);
+	line = extract_line(content[fd]);
+	content[fd] = extract_next_line(content[fd]);
 	return (line);
 }
 /*
