@@ -6,7 +6,7 @@
 /*   By: joseferr <joseferr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:29:17 by joseferr          #+#    #+#             */
-/*   Updated: 2023/11/14 16:18:41 by joseferr         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:02:38 by joseferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void	*ft_calloc(size_t elementCount, size_t elementSize);
 
 size_t	ft_strlen(const char *theString);
 
+#endif
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
 #endif

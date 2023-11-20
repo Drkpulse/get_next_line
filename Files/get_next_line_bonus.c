@@ -6,7 +6,7 @@
 /*   By: joseferr <joseferr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:07:26 by joseferr          #+#    #+#             */
-/*   Updated: 2023/11/15 18:13:10 by joseferr         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:58:55 by joseferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,6 @@ char	*get_next_line(int fd)
 	return (line);
 }
 /*
-#define BUFFER_SIZE 1000000
-
 int	main(void)
 {
 	int		file_descriptor;
