@@ -104,23 +104,44 @@ char	*get_next_line(int fd)
 	return (line);
 }
 /*
-int	main(void)
-{
-	int		file_descriptor;
-	char	*line;
+int main() {
+	int	fds[MAX_FILES];
+	int	i;
+	int	j;
+	const char *files[MAX_FILES] = {"example.txt", "example1.txt"};
 
-	file_descriptor = open("test.txt", O_RDONLY);
-	if (file_descriptor < 0)
+	i = 0;
+	j = 0;
+	while (i < MAX_FILES)
 	{
-		perror("Error opening file");
-		return (1);
+		fds[i] = open(files[i], O_RDONLY);
+		if (fds[i] == -1) {
+			perror("Unable to open file");
+		while (j < i)
+		{
+			close(fds[j]);
+			j++;
+		}
+			return 1;
+		}
+		i++;
 	}
-	while ((line = get_next_line(file_descriptor)) != NULL)
+	i = 0;
+	while (i < MAX_FILES)
 	{
-		printf("Line: %s", line);
-		free(line);
+		printf("File: %s\n", files[i]);
+		char *line;
+		while ((line = get_next_line(fds[i])) != NULL)
+		{
+			printf("%s\n", line);
+			free(line);
+
+		}
+		printf("\n");
+		close(fds[i]);
+		i++;
 	}
-	close(file_descriptor);
+
 	return (0);
 }
 */

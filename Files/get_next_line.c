@@ -106,21 +106,21 @@ char	*get_next_line(int fd)
 /*
 int	main(void)
 {
-	int		file_descriptor;
+	int		fd;
 	char	*line;
 
-	file_descriptor = open("test.txt", O_RDONLY);
-	if (file_descriptor < 0)
+	fd = open("example.txt", O_RDONLY);
+	if (fd < 0)
 	{
 		perror("Error opening file");
 		return (1);
 	}
-	while ((line = get_next_line(file_descriptor)) != NULL)
+	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("Line: %s", line);
 		free(line);
 	}
-	close(file_descriptor);
+	close(fd);
 	return (0);
 }
 */
